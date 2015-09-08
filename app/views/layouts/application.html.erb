@@ -5,8 +5,25 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" type="text/css" href="/css/materialize.css">
 </head>
 <body>
+  <nav id="navbar">
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo hide-on-med-and-down">Language Pair</a>
+        <ul id="nav-mobile" class="right">
+          <li><a href="/languages">All Languages</a></li>
+          <li><a href="/about">About</a></li>
+          <% if !session[:user_id].nil? %>
+            <li><a href="/profile">Profile</a></li>
+            <li><%= link_to 'Log Out', session_path(session), method: :delete %></li>
+          <% else %>
+            <li><a href="/login">Login</a></li>
+            <li><%= link_to 'Register', new_user_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
 
 <%= yield %>
 
