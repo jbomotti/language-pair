@@ -13,7 +13,7 @@
       <div class="nav-wrapper">
         <a href="/" class="brand-logo hide-on-med-and-down">Language Pair</a>
         <ul id="nav-mobile" class="right">
-          <li><a href="/languages">All Languages</a></li>
+          <li><%= link_to 'All Languages', languages_path %></li>
           <li><a href="/about">About</a></li>
           <% if !session[:user_id].nil? %>
             <li><a href="/profile">Profile</a></li>
