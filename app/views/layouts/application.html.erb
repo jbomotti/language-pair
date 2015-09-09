@@ -16,7 +16,7 @@
         <ul id="nav-mobile" class="right">
           <li><%= link_to 'All Languages', languages_path %></li>
           <li><a href="/about">About</a></li>
-          <% if !session[:user_id].nil? %>
+          <% if auth_logged_in? %>
             <li><a href="/profile">Profile</a></li>
             <li><%= link_to 'Log Out', session_path(session), method: :delete %></li>
           <% else %>
